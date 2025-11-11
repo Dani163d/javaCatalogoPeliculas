@@ -29,6 +29,25 @@ public class ServicioPeliculasLista implements IServicioPeliculas{
     public void buscarPelicula(Pelicula pelicula) {
         //regresa el indice de la pelicula encontrada en la lista
         var indice = peliculas.indexOf(pelicula);
-        System.out.println("Pelicula encontrada en el indice" + indice);
+        if (indice == -1)
+            System.out.println("Pelicula no encontrada: " + pelicula);
+        else
+        System.out.println("Pelicula encontrada en el indice: " + indice);
+    }
+
+    public static void main(String[] args) {
+        //creamos algunos objetos de tipo pelicula
+        var pelicula1 = new Pelicula("batman");
+        var pelicula2 = new Pelicula("superman");
+        // creamo sel servicio (patron de diseno service
+        IServicioPeliculas servicioPeliculas = new ServicioPeliculasLista();
+        //agregamos las peliculas a la lista
+        servicioPeliculas.agregarPelicula(pelicula1);
+        servicioPeliculas.agregarPelicula(pelicula2);
+        // listamos las peliculas
+        servicioPeliculas.listarPeliculas();
+        //buscamos una pelicula
+        //se debe implementar el metodo equals y hascode
+        servicioPeliculas.buscarPelicula(new Pelicula("superman"));
     }
 }
