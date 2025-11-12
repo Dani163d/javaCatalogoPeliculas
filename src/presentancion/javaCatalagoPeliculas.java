@@ -24,12 +24,13 @@ public class javaCatalagoPeliculas {
     }
 
     private static void mostrarMenu() {
-        System.out.println("""
+        System.out.print("""
                 Catalago de Peliculas
                 1. Agragar pelicula
-                2. Lsitar peliculas
+                2. Listar peliculas
                 3. Buscar pelicula
                 4. Salir
+                Elije una opcion:
                 """);
     }
 
