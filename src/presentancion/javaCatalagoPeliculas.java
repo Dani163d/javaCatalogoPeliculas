@@ -2,6 +2,7 @@ package presentancion;
 
 import dominio.Pelicula;
 import servicio.IServicioPeliculas;
+import servicio.ServicioPeliculasArchivo;
 import servicio.ServicioPeliculasLista;
 
 import java.util.Scanner;
@@ -11,7 +12,8 @@ public class javaCatalagoPeliculas {
         var salir = false;
         var consola = new Scanner(System.in);
         // agregamos la implementacion del servicio
-        IServicioPeliculas servicioPeliculas = new ServicioPeliculasLista();
+//        IServicioPeliculas servicioPeliculas = new ServicioPeliculasLista();
+        IServicioPeliculas servicioPeliculas = new ServicioPeliculasArchivo();
         while (!salir) {
             try {
                 mostrarMenu();
