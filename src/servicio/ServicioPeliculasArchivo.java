@@ -1,9 +1,8 @@
 package servicio;
 
 import dominio.Pelicula;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+
+import java.io.*;
 
 public class ServicioPeliculasArchivo implements IServicioPeliculas {
 
@@ -27,7 +26,28 @@ public class ServicioPeliculasArchivo implements IServicioPeliculas {
     }
     @Override
     public void listarPeliculas() {
+//    volvemos a abrir el archivo
+        var archivo = new File(NOMBRE_ARCHIVO);
+        try {
+            System.out.println("Lsitado de Peliculas");
+//            abrimos el archivo para lectura
+            var entrada = new BufferedReader(new FileReader(archivo));
+//            leemos linea a linea el archivo
+            String linea;
+            linea = entrada.readLine();
+//            leemos todas las lineas
+            while (linea != null) {
+                var pelicula = new Pelicula(linea);
+                System.out.println(pelicula);
+//                antes de terminar el ciclo volvemos a leer la siguiente linea
+                linea = entrada.readLine();
+            }
+//            cerrar elarchivo
+            entrada.close();
 
+        } catch (Exception e) {
+            System.out.println("Ocurrio un error al leer el archivo: " + e.getMessage());
+        }
     }
 
     @Override
