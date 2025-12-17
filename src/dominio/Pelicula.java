@@ -34,15 +34,13 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" +
-                "nombre='" + nombre + '\'' +
-                '}';
+        return this.nombre;
     }
 
     public static void main(String[] args) {
         var pelicula1 = new Pelicula("BATMAN");
         var pelicula2 = new Pelicula("SUPERMAN");
         System.out.println(pelicula1);
-        System.out.println(pelicula2);
+        System.out.println(pelicula2 );
     }
 }
